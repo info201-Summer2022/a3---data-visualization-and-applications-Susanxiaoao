@@ -1,0 +1,50 @@
+---
+title: "INFO201 Assignment3: Prison and Jail Analysis"
+output: html_document
+date: '2022-08-13'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(usmap)
+```
+## Introduction
+
+As a presentation of social and political structures, the sharpest manifestation of racism lies in prison system. The dataset focuses on the incarceration data from year 1970 to 2018. This assignment helps analyze how the jail dataset reflects social inequalities. The aim is to help people realize the current social and political problems in order to build a brighter future. 
+
+## Summary information
+
+First, the total population in US increased from 203882263 in 1970 to 327167434 in 2018.
+Second, from 1970 to 2018, the total population in jail in US increased from 160727.03 to 737126.07
+Third, according to the above two values, the population growth rate over the years is 60.469 %. In contrast, the jail population rate increases by 358.620 %
+Fourth, among all the population in jail in 2018, 33.58% are black, 15.38% are latinx, 46.95% are white
+Last, in 2018, among all the states, GA has the largest black population in jail, which is 21921.25
+
+## Chart to show trends over time
+
+In order to analyze about the underlying racial inequality in US, I chose to inclue the line chart of year against different races' jail population. According to the chart, there is no data of jail population before 1984, perhaps the jail census starts at 1985. In the years after 1985, white people and black people are the two majority races in jail population, followed by latinx, then native american and asian american & pacific islanders. From the chart, the jail population for white, black and latinx increases dramatically until around 2006, then experiences a relative stable fluctuation or decrese.
+
+```{r chart1, echo=FALSE}
+source("analysis.R")
+plot(data_plot)
+```
+
+## Chart to compare two variables
+
+As the line chart in the previous part shows that the largest two ethinic groups in jail is white and black, I would like to explore more about the portion of black and white people in prison admission. Thus I did this plot of comparison between total black prison admission and total white admission over the years. The pie chart shows that the admission number of black people is slightly higher than that of white people, according to calculation, the number is 5850096 to 5579082. In order to complete the pie chart, I also calculated the total population for other races, including aapi, latinx and native american and other races. This chart further explains the inequality distribution of races in prison. 
+
+```{r chart2, echo=FALSE}
+source("analysis.R")
+plot(pie_plot)
+```
+
+## Map to show which state has the most black population in jail
+
+From the values calculated previously, I get curious about the distribution of black population in jail in US in 2018, which reflects the states that are likely to have over-policing or disproportionate incarceration of black people. According to data, south-eastern states are lighter in color, which showing they have more black people in jail in 2018. One possible explanation for that is these states are conservative, which is not hard to understand relating to the history of slave states. The state with the largest black population in jail is Georgia. For the states with light blue color, it is highly likely that the black population there are more likely to experience unequal incarceration.
+
+```{r chart3, echo=FALSE}
+source("analysis.R")
+plot(map_plot)
+```
